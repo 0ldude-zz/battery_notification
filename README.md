@@ -1,5 +1,4 @@
-# battery_notification_job.sh
-Battery notifications with herbe
+# Battery notifications with herbe
 --------------------------------
 # NOTE:
   This is a work in progress. It still doesn't work
