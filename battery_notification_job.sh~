@@ -7,7 +7,7 @@ bat_state="$(upower -i `upower -e | grep 'BAT1'` | grep -E state | awk '{print $
 percent="$(upower -i `upower -e | grep 'BAT1'` | grep 'percentage' | awk '{print $2}' | tr -d '%')"
 
 #if (pc is charging AND battery > 99%) -> notify
-[ $bat_state == 'fully-charged' ] &&  /usr/local/bin/herbe "Battery Full," " " "Unplug the Cord"
+[ $bat_state = 'fully-charged' ] &&  /usr/local/bin/herbe "Battery Full," " " "Unplug the Cord"
 
 # if (pc isn't charging AND battery < 15%) -> notify
-[ $bat_state == 'discharging' ] && [ $percent -le 15 ] && /usr/local/bin/herbe "Battery Low," " " "Plug the Cord"
+[ $bat_state = 'discharging' ] && [ "$percent" -le 15 ] && /usr/local/bin/herbe "Battery Low," " " "Plug the Cord"
